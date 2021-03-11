@@ -4,3 +4,9 @@
   border: 3px solid green;
   padding: 10px;
 }
+
+body {
+    background-color: black;
+    color: rgb(50, 240, 50);
+    font-family: 'Courier New', Courier, monospace
+}

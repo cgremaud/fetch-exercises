@@ -1,7 +1,10 @@
-window.addEventListener("load", () => {
-    fetch("https://handlers.education.launchcode.org/static/weather.json").then((response) => {
-            response.json().then((json) => {
+window.addEventListener("load", (event) => {
+    let promise = fetch("https://handlers.education.launchcode.org/static/weather.json")
+    promise.then((response) => {
+            let jsonResponse = response.json()
+            jsonResponse.then((json) => {
                 console.log(json);
+                console.log(event)
 
                 let div = document.getElementById("weather-conditions");
                 let goForLaunch = false;
