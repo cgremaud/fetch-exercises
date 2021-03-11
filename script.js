@@ -1,21 +1,21 @@
 window.addEventListener("load", (event) => {
     console.log(event)
-    let promise = fetch("https://handlers.education.launchcode.org/static/weather.json")
-    promise.then((response) => {
-            let jsonResponse = response.json()
+    const fetchPromise = fetch("https://handlers.education.launchcode.org/static/weather.json")
+    fetchPromise.then((response) => {
+            const jsonResponse = response.json()
             jsonResponse.then((json) => {
                 console.log(json);
 
-                let div = document.getElementById("weather-conditions");
+                const div = document.getElementById("weather-conditions");
                 let goForLaunch = false;
 
                 div.innerHTML = ` <ul>
-            <li>Temp ${json.temp}</li>
-            <li>Wind Speed ${json.windSpeed}</li>
-            <li>Status ${json.status}</li>
-            <li>Chance of Precip ${json.chanceOfPrecipitation}</li>
-            <li>Zip Code ${json.zipcode}</li>
-            </ul>`;
+                <li>Temp ${json.temp}</li>
+                <li>Wind Speed ${json.windSpeed}</li>
+                <li>Status ${json.status}</li>
+                <li>Chance of Precip ${json.chanceOfPrecipitation}</li>
+                <li>Zip Code ${json.zipcode}</li>
+                </ul>`;
 
                 if (json.temp > json.tempMin && json.temp < json.tempMax) {
                     div.innerHTML += "Temp nominal <br />";
