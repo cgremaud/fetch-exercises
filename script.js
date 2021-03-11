@@ -6,22 +6,21 @@ window.addEventListener("load", () => {
                 let div = document.getElementById("weather-conditions");
                 let goForLaunch = false;
 
-                // json.windSpeed = 99
                 div.innerHTML = ` <ul>
             <li>Temp ${json.temp}</li>
             <li>Wind Speed ${json.windSpeed}</li>
             <li>Status ${json.status}</li>
             <li>Chance of Precip ${json.chanceOfPrecipitation}</li>
             <li>Zip Code ${json.zipcode}</li>
-         </ul>`;
+            </ul>`;
 
-                if (json.temp > 67) {
-                    div.innerHTML += "Temp too high <br />";
-                    goForLaunch = false;
-                    console.log(goForLaunch);
-                } else {
+                if (json.temp > json.tempMin && json.temp < json.tempMax) {
                     div.innerHTML += "Temp nominal <br />";
                     goForLaunch = true;
+                    console.log(goForLaunch);
+                } else {
+                    div.innerHTML += "Temp outside accepted range<br />";
+                    goForLaunch = false;
                 }
 
                 if (json.windSpeed < 50 && json.windSpeed > 2) {
