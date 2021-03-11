@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    fetch("https://handlers.education.launchcode.org/static/weather.json").then(function(response) {
+    fetch("./data.json").then(function(response) {
         response.json().then( function(json) {
             console.log(json)
 
