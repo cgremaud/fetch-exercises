@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
             <li>Wind Speed ${json.windSpeed}</li>
             <li>Status ${json.status}</li>
             <li>Chance of Precip ${json.chanceOfPrecipitation}</li>
+            <li>Zip Code ${json.zipcode}</li>
          </ul>`
 
 
@@ -22,16 +23,20 @@ window.addEventListener("load", () => {
              div.innerHTML += "Temp too high <br />"
              goForLaunch = true
              console.log(goForLaunch)
-         } else (
+         } else { 
              div.innerHTML += "Temp nominal <br />"
-         )
+             goForLaunch = false
+         }
 
          if (json.windSpeed < 50 && json.windSpeed > 2) {
-            div.innerHTML += "Windspeed nominal"
+            div.innerHTML += "Windspeed nominal<br />"
+            goForLaunch = true
          } else {
-             div.innerHTML += "Windspeed outside of acceptable range"
-             
+             div.innerHTML += "Windspeed outside of acceptable range<br />"
+             goForLaunch = false
          }
+
+         div.innerHTML += `Go For Launch: ${goForLaunch}`
          }); 
     })
 })
